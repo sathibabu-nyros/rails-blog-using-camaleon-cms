@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-3">
              <% if @categories.present? %>
-              <div class="panel panel-primary no-line">
+              <div class="panel panel-warning">
                 <div class="panel-heading"><%= ct("categories") %></div>
                 <div class="panel-body">
                 <ul>
@@ -35,13 +35,13 @@
             </div>     
             <% end %>
 
-            <div class="panel panel-default">
+            <div class="panel panel-success">
             <div class="panel-heading">
                 <%= ct("latest_articles") %>
             </div>
             <div class="panel-body">
                 <ul>
-                    <% current_site.the_posts("post").latest.limit(7).decorate.each do |p| %>
+                    <% @posts.latest.limit(5).decorate.each do |p| %>
                         <li><a href="<%= p.the_url %>"><%= p.the_title %></a></li>
                     <% end %>
                 </ul>
